@@ -7,7 +7,7 @@
 
 extern List emptyList;
 
-Expression * error(char *a, char *b)
+Expression * error(const char *a, const char *b)
 {
 	fprintf(stderr,"Error: %s%s\n", a, b);
 	return 0;

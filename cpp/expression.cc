@@ -119,7 +119,7 @@ IntegerExpression * IntegerExpression::isInteger()
 //	symbols
 //
 
-Symbol::Symbol(char * t)
+Symbol::Symbol(const char * t)
 {
 	// make a new copy of text
 	text = new char[strlen(t) + 1];
@@ -162,7 +162,7 @@ int Symbol::operator == (Expression *sym)
 	return 0;
 }
 
-int Symbol::operator == (char *t)
+int Symbol::operator == (const char *t)
 {	
 	return 0 == strcmp(text, t); 
 }

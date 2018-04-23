@@ -111,7 +111,7 @@ public:
 	virtual void apply(Expr &, ListNode *, Environment *);
 };
 
-static void catset(Environment * rho, Symbol * left, char * mid, 
+static void catset(Environment * rho, Symbol * left, const char * mid, 
 		Symbol * right, Expression * val)
 {	char buffer[120];
 
