@@ -21,6 +21,7 @@ extern List emptyList;
 int isTrue(Expression * x)
 {
 	error("isTrue invoked??");
+    return 0;
 }
 
 //
