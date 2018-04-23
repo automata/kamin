@@ -5,8 +5,8 @@
 
 extern Env valueOps;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 Function * Function::isFunction()
 {	return this; }
@@ -118,9 +118,9 @@ void BooleanBinaryFunction::applyWithArgs(Expr & target, ListNode * args, Enviro
 		}
 	
 	if (fun(left->isInteger()->val(), right->isInteger()->val())) 
-		target = true();
+		target = trueExpr();
 	else 
-		target = false();
+		target = falseExpr();
 }
 
 //

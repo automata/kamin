@@ -11,8 +11,8 @@ extern Env commands;
 extern Env valueOps;
 extern List emptyList;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 int isTrue(Expression * cond)
 {
@@ -31,8 +31,8 @@ initialize()
 
 	// initialize the global environment
 	Symbol * truesym = new Symbol("T");
-	true = truesym;
-	false = emptyList();
+	trueExpr = truesym;
+	falseExpr = emptyList();
 	Environment * genv = globalEnvironment;
 	// make T evaluate to T always
 	genv->add(truesym, truesym);

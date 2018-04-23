@@ -10,8 +10,8 @@ extern Env globalEnvironment;
 extern Env commands;
 extern Env valueOps;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 int isTrue(Expression * cond)
 {

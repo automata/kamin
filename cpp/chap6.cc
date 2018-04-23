@@ -8,8 +8,8 @@ extern Env commands;
 extern Env valueOps;
 extern List emptyList;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 //	isTrue reverts back to the old case where 0 is false and non-0 true
 int isTrue(Expression * cond)
@@ -213,8 +213,8 @@ initialize()
 {
 	// initialize global variables
 	reader = new ReaderClass;
-	true = new IntegerExpression(1);
-	false = new IntegerExpression(0);
+	trueExpr = new IntegerExpression(1);
+	falseExpr = new IntegerExpression(0);
 
 	// initialize the statement environment
 	Environment * cmds = commands;

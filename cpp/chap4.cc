@@ -7,8 +7,8 @@ extern Env commands;
 extern Env valueOps;
 extern List emptyList;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 int isTrue(Expression * cond)
 {
@@ -53,8 +53,8 @@ initialize()
 
 	// initialize the value of true
 	Symbol * truesym = new Symbol("T");
-	true = truesym;
-	false = emptyList();
+	trueExpr = truesym;
+	falseExpr = emptyList();
 
 	// initialize the command environment
 	// there are no command or value-ops as such in scheme

@@ -19,8 +19,8 @@ List emptyList;
 
 //	the following globals are defined in the ``initialization'' routine
 ReaderClass * reader;
-Expr true;
-Expr false;
+Expr trueExpr;
+Expr falseExpr;
 
 main() {
 	Expr entered;	// expression as entered by users
