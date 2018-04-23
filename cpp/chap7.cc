@@ -1,4 +1,4 @@
-# include <std.h>
+# include "std.h"
 # include <ctype.h>
 
 # include "lisp.h"
