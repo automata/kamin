@@ -14,6 +14,8 @@ LIBS = -lg++
 #######################################################################
 ifiles = main.o reader.o expression.o list.o function.o environment.o lisp.o
 
+all: chap1 chap2 chap3 chap4 chap5 chap6 chap7 chap8
+
 chap1: $(ifiles) chap1.o
 	g++ -o chap1 $(ifiles) chap1.o
 
@@ -40,3 +42,6 @@ chap8: $(ifiles) chap8.o
 
 package:
 	packmail -o'kamin' Makefile *.tex *.sty *.cc *.h 
+
+clean:
+	rm -f chap{1..8} *.o
