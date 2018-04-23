@@ -21,7 +21,7 @@ void Expr::operator = (Expression * newvalue)
 	// decrement left hand side of assignment 
 	if (value) {
 		value->referenceCount--;
-		if (value->referenceCount = 0) {
+		if (value->referenceCount == 0) {
 			value->free();
 			delete value;
 			}
