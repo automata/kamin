@@ -167,7 +167,7 @@ void LazyFunction::apply(Expr & target, ListNode * args, Environment * rho)
 	ListNode * newargs = makeThunks(args, rho);
 
 	// make new environment
-	Env newrho = new Environment(anames, newargs, context);
+	Environment *newrho = new Environment(anames, newargs, context);
 
 	// evaluate body in new environment
 	if (body())

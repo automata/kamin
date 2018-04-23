@@ -341,7 +341,7 @@ void QueryStatement::apply(Expr&target, ListNode*args, Environment*rho)
 		}
 
 	// we make a new environment to isolate any new variables defined
-	Env newrho = new Environment(emptyList, emptyList, rho);
+	Environment *newrho = new Environment(emptyList, emptyList, rho);
 
 	args->at(0)->eval(target, valueOps, newrho);
 

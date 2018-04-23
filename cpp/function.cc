@@ -33,7 +33,7 @@ static ListNode * evalArgs(ListNode * args, Environment * rho)
 
 void Function::apply(Expr & target, ListNode * args, Environment * rho)
 {
-	List newargs = evalArgs(args, rho);
+	ListNode *newargs = evalArgs(args, rho);
 	applyWithArgs(target, newargs, rho);
 	newargs = 0;	// force garbage collection
 }

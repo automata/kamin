@@ -87,7 +87,7 @@ void Method::doMethod(Expr& target, Object* self, ListNode* args,
 	context = ctx;
 
 	// put self on the front of the argument list
-	List newargs = new ListNode(self, args);
+	ListNode *newargs = new ListNode(self, args);
 
 	// and execute the function
 	apply(target, newargs, rho);
