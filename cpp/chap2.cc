@@ -23,7 +23,7 @@ int isTrue(Expression * cond)
 	return 1;
 }
 
-initialize()
+void initialize()
 {
 
 	// create the reader/parser 

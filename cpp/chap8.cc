@@ -360,7 +360,7 @@ void QueryStatement::apply(Expr&target, ListNode*args, Environment*rho)
 	newrho = 0;	// force memory management
 }
 
-initialize()
+void initialize()
 {
 	// create the reader/parser 
 	reader = new PrologReader;

@@ -21,7 +21,7 @@ int isTrue(Expression * cond)
 	return 1;
 }
 
-initialize()
+void initialize()
 {
 	// initialize global variables
 	reader = new ReaderClass;

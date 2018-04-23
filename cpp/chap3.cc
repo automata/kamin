@@ -618,7 +618,7 @@ void SubscriptFunction::applyOp(Expr& target, APLValue *left, APLValue *right)
 	target = newval;
 }
 
-initialize()
+void initialize()
 {
 
 	// initialize global variables

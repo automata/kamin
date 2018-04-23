@@ -209,7 +209,7 @@ void ClusterDef::apply(Expr & target, ListNode * args, Environment * rho)
 	setprefix = 0;
 }
 
-initialize()
+void initialize()
 {
 	// initialize global variables
 	reader = new ReaderClass;

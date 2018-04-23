@@ -204,7 +204,7 @@ void LambdaFunction::apply(Expr & target, ListNode * args, Environment * rho)
 	target = new LazyFunction(argNames, args->at(1), rho);
 }
 
-initialize()
+void initialize()
 {
 
 	// initialize global variables

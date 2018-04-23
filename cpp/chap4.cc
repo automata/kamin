@@ -45,7 +45,7 @@ void LambdaFunction::apply(Expr & target, ListNode * args, Environment * rho)
 	target = new UserFunction(argNames, args->at(1), rho);
 }
 
-initialize()
+void initialize()
 {
 
 	// initialize global variables

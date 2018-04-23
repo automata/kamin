@@ -335,7 +335,7 @@ void MethodMethod::doMethod(Expr& target, Object* self, ListNode *args,
 	target = name;
 }
 
-initialize()
+void initialize()
 {
 	// initialize global variables
 	reader = new SmalltalkReader;

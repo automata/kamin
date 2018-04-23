@@ -7,7 +7,7 @@
 using namespace std;
 
 //	forward definitions
-extern initialize();
+extern void initialize();
 
 //	definitions of global environments
 
@@ -22,7 +22,7 @@ ReaderClass * reader;
 Expr trueExpr;
 Expr falseExpr;
 
-main() {
+int main() {
 	Expr entered;	// expression as entered by users
 
 	// common initialization
