@@ -4,7 +4,6 @@
 
 # include "environment.h"
 # include "reader.h"
-using namespace std;
 
 //	forward definitions
 extern void initialize();

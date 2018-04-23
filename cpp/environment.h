@@ -3,8 +3,6 @@
 
 # include "list.h"
 
-using namespace std;
-
 //
 //	Env is a shadow to Expr to perform memory management
 //
