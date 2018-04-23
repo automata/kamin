@@ -169,6 +169,9 @@ void IntegerBinaryMethod::doMethod(Expr & target, Object * self,
 // smalltalk symbols just evaluate to themselves
 class SmalltalkSymbol : public Symbol {
 public:
+    //https://stackoverflow.com/a/3217473/152016
+    //https://stackoverflow.com/a/18034496/152016
+    SmalltalkSymbol(const char * t) : Symbol(t){}
 	virtual void eval(Expr & target, Environment *, Environment *)
 		{ target = this; }
 };
