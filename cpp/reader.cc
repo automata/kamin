@@ -29,8 +29,9 @@ void ReaderClass::printSecondaryPrompt()
 void ReaderClass::fillInputBuffer()
 {
 	// if the user indicates end of file make it a quit
-	if (gets(buffer) == NULL)
+    if (fgets(buffer, sizeof buffer, stdin) == NULL) {
 		strcpy(buffer,"quit");
+    }
 
 	// initialize the current pointer
 	p = buffer;
