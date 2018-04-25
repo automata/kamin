@@ -1,9 +1,9 @@
-# include "std.h"
-# include <ctype.h>
+#include "std.h"
+#include <ctype.h>
 
-# include "expression.h"
-# include "list.h"
-# include "reader.h"
+#include "expression.h"
+#include "list.h"
+#include "reader.h"
 
 extern List emptyList;
 

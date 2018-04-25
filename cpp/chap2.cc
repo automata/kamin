@@ -1,8 +1,8 @@
-# include "std.h"
+#include "std.h"
 
-# include "list.h"
-# include "environment.h"
-# include "lisp.h"
+#include "list.h"
+#include "environment.h"
+#include "lisp.h"
 
 extern ReaderClass * reader;
 

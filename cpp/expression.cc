@@ -1,5 +1,6 @@
-# include "expression.h"
-# include "std.h"
+#include "expression.h"
+#include "std.h"
+#include "environment.h"
 
 //
 //	class Expr - expression holders
@@ -98,8 +99,6 @@ Continuation * Expression::isContinuation() { return 0; }
 //
 //	basic objects - integers and symbols
 //
-
-# include "environment.h"
 
 //
 //	integers

@@ -2,8 +2,8 @@
 // main program for c++ versions of kamin interpreters
 //
 
-# include "environment.h"
-# include "reader.h"
+#include "environment.h"
+#include "reader.h"
 
 //	forward definitions
 extern void initialize();

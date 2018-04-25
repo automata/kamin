@@ -1,8 +1,8 @@
 //
 //	The core classes for the basic lisp functions
 //
-# include "reader.h"
-# include "function.h"
+#include "reader.h"
+#include "function.h"
 
 //
 //	the Lisp reader adds quoted constants

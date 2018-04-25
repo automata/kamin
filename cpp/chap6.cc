@@ -1,6 +1,6 @@
-# include "std.h"
-# include "lisp.h"
-# include "environment.h"
+#include "std.h"
+#include "lisp.h"
+#include "environment.h"
 
 extern ReaderClass * reader;
 extern Env globalEnvironment;

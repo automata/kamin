@@ -1,7 +1,7 @@
 # ifndef intsymh
 # define intsymh
 
-# include "expression.h"
+#include "expression.h"
 
 class IntegerExpression : public Expression {
 private:

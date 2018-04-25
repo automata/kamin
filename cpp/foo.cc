@@ -1,7 +1,7 @@
-# include "std.h"
-# include "environment.h"
-# include "intsym.h"
-# include "list.h"
+#include "std.h"
+#include "environment.h"
+#include "intsym.h"
+#include "list.h"
 
 Environment * Environment::isEnvironment()
 {	return this; }

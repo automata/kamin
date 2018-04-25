@@ -2,11 +2,11 @@
 //	APL Interpreter
 //
 
-# include "lisp.h"
+#include "lisp.h"
 //	uses printf from stdio package
-# include <stdio.h>
+#include <stdio.h>
 //	uses isdigit from ctypes
-# include <ctype.h>
+#include <ctype.h>
 
 extern ReaderClass * reader;
 extern Env globalEnvironment;
