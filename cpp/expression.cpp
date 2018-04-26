@@ -108,7 +108,7 @@ Continuation * Expression::isContinuation() { return 0; }
 
 void IntegerExpression::print()
 {
-	printf("%d", value);
+	printf("%d\n", value);
 }
 
 IntegerExpression * IntegerExpression::isInteger()
@@ -148,7 +148,7 @@ void Symbol::eval(Expr & target, Environment * valueops, Environment * rho)
 
 void Symbol::print()
 {
-	printf("%s", text);
+	printf("%s\n", text);
 }
 
 Symbol * Symbol::isSymbol()

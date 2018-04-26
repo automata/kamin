@@ -14,7 +14,7 @@ Function * Function::isFunction()
 {	return this; }
 
 void Function::print()
-{	printf("<closure>"); }
+{	printf("<closure>\n"); }
 
 int Function::isClosure()
 {	return 0; }
