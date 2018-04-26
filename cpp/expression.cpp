@@ -2,6 +2,8 @@
 #include "std.h"
 #include "environment.h"
 
+namespace Interpreter {
+
 //
 //	class Expr - expression holders
 //
@@ -164,4 +166,6 @@ int Symbol::operator == (Expression *sym)
 int Symbol::operator == (const char *t)
 {	
 	return 0 == strcmp(text, t); 
+}
+
 }

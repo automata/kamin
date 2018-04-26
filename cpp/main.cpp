@@ -5,6 +5,8 @@
 #include "environment.h"
 #include "reader.h"
 
+namespace Interpreter {
+
 //	forward definitions
 extern void initialize();
 
@@ -21,8 +23,11 @@ ReaderClass * reader;
 Expr trueExpr;
 Expr falseExpr;
 
+}
+
 int main() {
-	Expr entered;	// expression as entered by users
+	using namespace Interpreter;
+    Expr entered;	// expression as entered by users
 
 	// common initialization
 	emptyList = new ListNode(0, 0);

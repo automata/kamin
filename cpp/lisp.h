@@ -4,6 +4,8 @@
 #include "reader.h"
 #include "function.h"
 
+namespace Interpreter {
+
 //
 //	the Lisp reader adds quoted constants
 //
@@ -105,4 +107,4 @@ public:
 	virtual void applyWithArgs(Expr &, ListNode *, Environment *);
 };
 
-
+}

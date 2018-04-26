@@ -5,6 +5,8 @@
 #include "environment.h"
 #include "lisp.h"
 
+namespace Interpreter {
+
 extern ReaderClass * reader;
 extern Env globalEnvironment;
 extern Env commands;
@@ -44,4 +46,6 @@ void initialize()
 	vo->add(new Symbol("<"), new IntegerBinaryFunction(LessThanFunction));
 	vo->add(new Symbol(">"), new IntegerBinaryFunction(GreaterThanFunction));
 	vo->add(new Symbol("print"), new UnaryFunction(PrintFunction));
+}
+
 }

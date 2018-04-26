@@ -1,6 +1,8 @@
 #include "std.h"
 #include "lisp.h"
 
+namespace Interpreter {
+
 extern ReaderClass * reader;
 
 extern Env globalEnvironment;
@@ -379,4 +381,6 @@ void initialize()
 	Environment * cmds = commands;
 	cmds->add(new Symbol("define"), new DefineStatement);
 	cmds->add(new Symbol("query"), new QueryStatement);
+}
+
 }

@@ -1,6 +1,8 @@
 #include "std.h"
 #include "lisp.h"
 
+namespace Interpreter {
+
 extern Expr trueExpr;
 extern Expr falseExpr;
 extern Env valueOps;
@@ -287,4 +289,4 @@ void BeginStatement::applyWithArgs(Expr& target, ListNode* args,
 		target = args->at(len - 1);
 }
 
-
+}

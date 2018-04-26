@@ -5,6 +5,8 @@
 #include "list.h"
 #include "reader.h"
 
+namespace Interpreter {
+
 extern List emptyList;
 
 Expression * error(const char *a, const char *b)
@@ -141,4 +143,6 @@ Symbol * ReaderClass::readSymbol()
 		*q++ = *p++;
 	*q = '\0';
 	return new Symbol(token);
+}
+
 }

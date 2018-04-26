@@ -3,6 +3,8 @@
 
 #include "expression.h"
 
+namespace Interpreter {
+
 class ListNode : public Expression {
 protected:
 	Expr h;		// the head field
@@ -36,5 +38,6 @@ public:
 	void operator = (ListNode * r)
 		{ Expr::operator = (r); }
 };
-# endif
 
+}
+# endif

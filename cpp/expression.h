@@ -1,6 +1,8 @@
 # ifndef expressionh
 # define expressionh
 
+namespace Interpreter {
+
 //	forward references
 class Environment;
 class Expression;
@@ -95,4 +97,7 @@ public:
 
 Expression * error(const char *, const char * x = 0);
 
+}
+
 # endif
+

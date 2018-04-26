@@ -8,6 +8,8 @@
 //	uses isdigit from ctypes
 #include <ctype.h>
 
+namespace Interpreter {
+
 extern ReaderClass * reader;
 extern Env globalEnvironment;
 extern Env commands;
@@ -665,3 +667,4 @@ void initialize()
 	vo->add(new Symbol("print"), new UnaryFunction(PrintFunction));
 }
 
+}

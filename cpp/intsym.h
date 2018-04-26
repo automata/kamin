@@ -3,6 +3,8 @@
 
 #include "expression.h"
 
+namespace Interpreter {
+
 class IntegerExpression : public Expression {
 private:
 	int value;
@@ -35,5 +37,6 @@ public:
 	char * chars() { return text; }
 };
 
-#endif
+}
 
+#endif

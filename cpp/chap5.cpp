@@ -2,6 +2,8 @@
 #include "lisp.h"
 #include "environment.h"
 
+namespace Interpreter {
+
 extern ReaderClass * reader;
 extern Env globalEnvironment;
 extern Env commands;
@@ -244,3 +246,4 @@ void initialize()
 	ge->add(new Symbol("nil"), emptyList());
 }
 
+}

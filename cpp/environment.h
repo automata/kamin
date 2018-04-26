@@ -3,6 +3,8 @@
 
 #include "list.h"
 
+namespace Interpreter {
+
 //
 //	Env is a shadow to Expr to perform memory management
 //
@@ -45,5 +47,6 @@ inline Env::operator Environment * ()
 inline void Env::operator = (Environment * r)
 { Expr::operator = (r); }
 
-# endif
+}
 
+# endif

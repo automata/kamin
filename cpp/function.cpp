@@ -3,6 +3,8 @@
 #include "function.h"
 #include "list.h"
 
+namespace Interpreter {
+
 extern Env valueOps;
 
 extern Expr trueExpr;
@@ -169,3 +171,4 @@ void UserFunction::applyWithArgs(Expr& target, ListNode* args, Environment* rho)
 	newrho = 0;	// force garbage collection
 }
 
+}

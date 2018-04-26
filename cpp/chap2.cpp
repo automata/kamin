@@ -4,6 +4,8 @@
 #include "environment.h"
 #include "lisp.h"
 
+namespace Interpreter {
+
 extern ReaderClass * reader;
 
 extern Env globalEnvironment;
@@ -63,4 +65,6 @@ void initialize()
 	vo->add(new Symbol("list?"), new BooleanUnary(ListpFunction));
 	vo->add(new Symbol("null?"), new BooleanUnary(NullpFunction));
 	vo->add(new Symbol("print"), new UnaryFunction(PrintFunction));
+}
+
 }

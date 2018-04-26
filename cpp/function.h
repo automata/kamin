@@ -3,6 +3,8 @@
 
 #include "environment.h"
 
+namespace Interpreter {
+
 class ListNode;
 
 class Function : public Expression {
@@ -69,5 +71,6 @@ public:
 	virtual int isClosure();
 };
 
-# endif
+}
 
+# endif

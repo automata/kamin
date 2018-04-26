@@ -3,6 +3,8 @@
 #include "function.h"
 #include "environment.h"
 
+namespace Interpreter {
+
 ListNode::ListNode(Expression * car, Expression * cdr)
 {
 	h = car;
@@ -113,3 +115,4 @@ void ListNode::print()
 ListNode * ListNode::isList()
 {	return this; }
 
+}

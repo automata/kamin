@@ -2,6 +2,8 @@
 
 #include "environment.h"
 
+namespace Interpreter {
+
 //
 //	Environment - an environment is built out of two parallel lists
 //
@@ -74,4 +76,6 @@ void Environment::add(Symbol * s, Expression * v)
 {
 	theNames = new ListNode(s, (ListNode *) theNames);
 	theValues = new ListNode(v, (ListNode *) theValues);
+}
+
 }

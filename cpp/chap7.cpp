@@ -4,6 +4,8 @@
 #include "lisp.h"
 #include "environment.h"
 
+namespace Interpreter {
+
 extern ReaderClass * reader;
 extern Env globalEnvironment;
 extern Env commands;
@@ -378,4 +380,6 @@ void initialize()
 	im->add(new Symbol("if"), new IfMethod);
 	ge->add(new Symbol("Integer"),
 			new Object(objClassMethods, objData));
+}
+
 }
