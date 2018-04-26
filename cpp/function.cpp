@@ -1,18 +1,20 @@
-# include <stdio.h>
-# include "environment.h"
-# include "function.h"
-# include "list.h"
+#include <stdio.h>
+#include "environment.h"
+#include "function.h"
+#include "list.h"
+
+namespace Interpreter {
 
 extern Env valueOps;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 Function * Function::isFunction()
 {	return this; }
 
 void Function::print()
-{	printf("<closure>"); }
+{	printf("<closure>\n"); }
 
 int Function::isClosure()
 {	return 0; }
@@ -33,7 +35,7 @@ static ListNode * evalArgs(ListNode * args, Environment * rho)
 
 void Function::apply(Expr & target, ListNode * args, Environment * rho)
 {
-	List newargs = evalArgs(args, rho);
+	ListNode *newargs = evalArgs(args, rho);
 	applyWithArgs(target, newargs, rho);
 	newargs = 0;	// force garbage collection
 }
@@ -118,9 +120,9 @@ void BooleanBinaryFunction::applyWithArgs(Expr & target, ListNode * args, Enviro
 		}
 	
 	if (fun(left->isInteger()->val(), right->isInteger()->val())) 
-		target = true();
+		target = trueExpr();
 	else 
-		target = false();
+		target = falseExpr();
 }
 
 //
@@ -169,3 +171,4 @@ void UserFunction::applyWithArgs(Expr& target, ListNode* args, Environment* rho)
 	newrho = 0;	// force garbage collection
 }
 
+}

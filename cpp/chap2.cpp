@@ -1,8 +1,10 @@
-# include <std.h>
+#include "std.h"
 
-# include "list.h"
-# include "environment.h"
-# include "lisp.h"
+#include "list.h"
+#include "environment.h"
+#include "lisp.h"
+
+namespace Interpreter {
 
 extern ReaderClass * reader;
 
@@ -11,8 +13,8 @@ extern Env commands;
 extern Env valueOps;
 extern List emptyList;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 int isTrue(Expression * cond)
 {
@@ -23,7 +25,7 @@ int isTrue(Expression * cond)
 	return 1;
 }
 
-initialize()
+void initialize()
 {
 
 	// create the reader/parser 
@@ -31,8 +33,8 @@ initialize()
 
 	// initialize the global environment
 	Symbol * truesym = new Symbol("T");
-	true = truesym;
-	false = emptyList();
+	trueExpr = truesym;
+	falseExpr = emptyList();
 	Environment * genv = globalEnvironment;
 	// make T evaluate to T always
 	genv->add(truesym, truesym);
@@ -63,4 +65,6 @@ initialize()
 	vo->add(new Symbol("list?"), new BooleanUnary(ListpFunction));
 	vo->add(new Symbol("null?"), new BooleanUnary(NullpFunction));
 	vo->add(new Symbol("print"), new UnaryFunction(PrintFunction));
+}
+
 }

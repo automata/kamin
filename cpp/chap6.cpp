@@ -1,6 +1,8 @@
-# include <std.h>
-# include "lisp.h"
-# include "environment.h"
+#include "std.h"
+#include "lisp.h"
+#include "environment.h"
+
+namespace Interpreter {
 
 extern ReaderClass * reader;
 extern Env globalEnvironment;
@@ -8,8 +10,8 @@ extern Env commands;
 extern Env valueOps;
 extern List emptyList;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 //	isTrue reverts back to the old case where 0 is false and non-0 true
 int isTrue(Expression * cond)
@@ -111,7 +113,7 @@ public:
 	virtual void apply(Expr &, ListNode *, Environment *);
 };
 
-static void catset(Environment * rho, Symbol * left, char * mid, 
+static void catset(Environment * rho, Symbol * left, const char * mid, 
 		Symbol * right, Expression * val)
 {	char buffer[120];
 
@@ -209,12 +211,12 @@ void ClusterDef::apply(Expr & target, ListNode * args, Environment * rho)
 	setprefix = 0;
 }
 
-initialize()
+void initialize()
 {
 	// initialize global variables
 	reader = new ReaderClass;
-	true = new IntegerExpression(1);
-	false = new IntegerExpression(0);
+	trueExpr = new IntegerExpression(1);
+	falseExpr = new IntegerExpression(0);
 
 	// initialize the statement environment
 	Environment * cmds = commands;
@@ -235,4 +237,6 @@ initialize()
 	vo->add(new Symbol("<"), new IntegerBinaryFunction(LessThanFunction));
 	vo->add(new Symbol(">"), new IntegerBinaryFunction(GreaterThanFunction));
 	vo->add(new Symbol("print"), new UnaryFunction(PrintFunction));
+}
+
 }

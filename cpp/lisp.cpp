@@ -1,8 +1,10 @@
-# include <std.h>
-# include "lisp.h"
+#include "std.h"
+#include "lisp.h"
 
-extern Expr true;
-extern Expr false;
+namespace Interpreter {
+
+extern Expr trueExpr;
+extern Expr falseExpr;
 extern Env valueOps;
 
 //
@@ -63,7 +65,7 @@ void EqualFunction(Expr & target, Expression * one, Expression * two)
 	IntegerExpression * ione = one->isInteger();
 	IntegerExpression * itwo = two->isInteger();
 	if (ione && itwo && (ione->val() == itwo->val())) {
-		target = true();
+		target = trueExpr();
 		return;
 		}
 
@@ -71,7 +73,7 @@ void EqualFunction(Expr & target, Expression * one, Expression * two)
 	Symbol * sone = one->isSymbol();
 	Symbol * stwo = two->isSymbol();
 	if (sone && stwo && (*sone == stwo)) {
-		target = true();
+		target = trueExpr();
 		return;
 		}
 
@@ -79,12 +81,12 @@ void EqualFunction(Expr & target, Expression * one, Expression * two)
 	ListNode * lone = one->isList();
 	ListNode * ltwo = two->isList();
 	if (lone && ltwo && lone->isNil() && ltwo->isNil()) {
-		target = true();
+		target = trueExpr();
 		return;
 		}
 
 	// false otherwise
-	target = false();
+	target = falseExpr();
 }
 
 int IntEqualFunction(int a, int b) { return a == b; }
@@ -127,9 +129,9 @@ void ConsFunction(Expr & target, Expression * left, Expression * right)
 void BooleanUnary::applyWithArgs(Expr & target, ListNode * args, Environment *)
 {
 	if (fun(args->head()))
-		target = true();
+		target = trueExpr();
 	else
-		target = false();
+		target = falseExpr();
 }
 
 int NumberpFunction(Expression * arg)
@@ -287,4 +289,4 @@ void BeginStatement::applyWithArgs(Expr& target, ListNode* args,
 		target = args->at(len - 1);
 }
 
-
+}

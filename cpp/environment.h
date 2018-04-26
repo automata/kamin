@@ -1,9 +1,9 @@
 # ifndef environment
 # define environment
 
-# include "list.h"
+#include "list.h"
 
-using namespace std;
+namespace Interpreter {
 
 //
 //	Env is a shadow to Expr to perform memory management
@@ -47,5 +47,6 @@ inline Env::operator Environment * ()
 inline void Env::operator = (Environment * r)
 { Expr::operator = (r); }
 
-# endif
+}
 
+# endif

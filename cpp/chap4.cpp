@@ -1,5 +1,7 @@
-# include "environment.h"
-# include "lisp.h"
+#include "environment.h"
+#include "lisp.h"
+
+namespace Interpreter {
 
 extern ReaderClass * reader;
 extern Env globalEnvironment;
@@ -7,8 +9,8 @@ extern Env commands;
 extern Env valueOps;
 extern List emptyList;
 
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 int isTrue(Expression * cond)
 {
@@ -45,7 +47,7 @@ void LambdaFunction::apply(Expr & target, ListNode * args, Environment * rho)
 	target = new UserFunction(argNames, args->at(1), rho);
 }
 
-initialize()
+void initialize()
 {
 
 	// initialize global variables
@@ -53,8 +55,8 @@ initialize()
 
 	// initialize the value of true
 	Symbol * truesym = new Symbol("T");
-	true = truesym;
-	false = emptyList();
+	trueExpr = truesym;
+	falseExpr = emptyList();
 
 	// initialize the command environment
 	// there are no command or value-ops as such in scheme
@@ -87,3 +89,4 @@ initialize()
 	ge->add(new Symbol("nil"), emptyList());
 }
 
+}

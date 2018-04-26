@@ -1,7 +1,9 @@
 # ifndef functionh
 # define functionh
 
-# include "environment.h"
+#include "environment.h"
+
+namespace Interpreter {
 
 class ListNode;
 
@@ -69,5 +71,6 @@ public:
 	virtual int isClosure();
 };
 
-# endif
+}
 
+# endif

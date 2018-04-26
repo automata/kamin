@@ -2,12 +2,13 @@
 // main program for c++ versions of kamin interpreters
 //
 
-# include "environment.h"
-# include "reader.h"
-using namespace std;
+#include "environment.h"
+#include "reader.h"
+
+namespace Interpreter {
 
 //	forward definitions
-extern initialize();
+extern void initialize();
 
 //	definitions of global environments
 
@@ -19,11 +20,14 @@ List emptyList;
 
 //	the following globals are defined in the ``initialization'' routine
 ReaderClass * reader;
-Expr true;
-Expr false;
+Expr trueExpr;
+Expr falseExpr;
 
-main() {
-	Expr entered;	// expression as entered by users
+}
+
+int main() {
+	using namespace Interpreter;
+    Expr entered;	// expression as entered by users
 
 	// common initialization
 	emptyList = new ListNode(0, 0);

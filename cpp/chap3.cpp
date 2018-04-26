@@ -2,11 +2,13 @@
 //	APL Interpreter
 //
 
-# include "lisp.h"
+#include "lisp.h"
 //	uses printf from stdio package
-# include <stdio.h>
+#include <stdio.h>
 //	uses isdigit from ctypes
-# include <ctype.h>
+#include <ctype.h>
+
+namespace Interpreter {
 
 extern ReaderClass * reader;
 extern Env globalEnvironment;
@@ -21,6 +23,7 @@ extern List emptyList;
 int isTrue(Expression * x)
 {
 	error("isTrue invoked??");
+    return 0;
 }
 
 //
@@ -78,26 +81,31 @@ void APLValue::free()
 void APLValue::print()
 {	int i, j;
 
+    //https://stackoverflow.com/a/92439/152016
 	switch(shape()->length()) {
 		case 0:	// scalar values
 			printf("%d", at(0));
 			break;
-
-		case 1: // vector values
+            
+		case 1: {
+            // vector values
 			int len = size();
 			for (i = 0; i < len; i++)
 				printf("%d ", at(i));
 			break;
+                }
 
-		case 2:	// matrix values
-			int len1 = shapeAt(0);
-			int len2 = shapeAt(1);
-			for (i = 0; i < len1; i++) {
-				for (j = 0; j < len2; j++)
-					printf("%d ", at(i*len2 + j));
-				printf("\n");
-				}
-			break;
+        case 2:	{
+            // matrix values
+            int len1 = shapeAt(0);
+            int len2 = shapeAt(1);
+            for (i = 0; i < len1; i++) {
+                for (j = 0; j < len2; j++)
+                    printf("%d ", at(i*len2 + j));
+                printf("\n");
+            }
+            break;
+                }
 		default:
 			printf("rank is %d\n", shape()->length());
 			error("unknown rank in apl value printing");
@@ -618,7 +626,7 @@ void SubscriptFunction::applyOp(Expr& target, APLValue *left, APLValue *right)
 	target = newval;
 }
 
-initialize()
+void initialize()
 {
 
 	// initialize global variables
@@ -659,3 +667,4 @@ initialize()
 	vo->add(new Symbol("print"), new UnaryFunction(PrintFunction));
 }
 
+}

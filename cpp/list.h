@@ -1,7 +1,9 @@
 # ifndef listh
 # define listh
 
-# include "expression.h"
+#include "expression.h"
+
+namespace Interpreter {
 
 class ListNode : public Expression {
 protected:
@@ -36,5 +38,6 @@ public:
 	void operator = (ListNode * r)
 		{ Expr::operator = (r); }
 };
-# endif
 
+}
+# endif

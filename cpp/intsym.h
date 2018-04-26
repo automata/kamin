@@ -1,7 +1,9 @@
 # ifndef intsymh
 # define intsymh
 
-# include "expression.h"
+#include "expression.h"
+
+namespace Interpreter {
 
 class IntegerExpression : public Expression {
 private:
@@ -35,5 +37,6 @@ public:
 	char * chars() { return text; }
 };
 
-#endif
+}
 
+#endif

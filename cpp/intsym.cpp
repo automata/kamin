@@ -2,8 +2,8 @@
 //	basic objects - integers and symbols
 //
 
-# include <std.h>
-# include "environment.h"
+#include "std.h"
+#include "environment.h"
 
 //
 //	integers

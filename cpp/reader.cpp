@@ -1,40 +1,62 @@
-# include <std.h>
-# include <ctype.h>
+#include "std.h"
+#include <ctype.h>
 
-# include "expression.h"
-# include "list.h"
-# include "reader.h"
+#include "expression.h"
+#include "list.h"
+#include "reader.h"
 
-extern List emptyList;
+namespace Interpreter {
 
-Expression * error(char *a, char *b)
+    extern List emptyList;
+    const char *prompt;
+    const char *primaryPrompt = "-> ";
+    const char *secondaryPrompt = "> ";
+
+Expression * error(const char *a, const char *b)
 {
-	fprintf(stderr,"Error: %s%s\n", a, b);
-	return 0;
+    fprintf(stderr,"Error: %s%s\n", a, b);
+    return 0;
 }
 
 void ReaderClass::printPrimaryPrompt()
 {
-	printf("\n-> ");
-	fflush(stdout);
+    prompt = primaryPrompt; 
 }
 
 void ReaderClass::printSecondaryPrompt()
 {
-	printf("> ");
-	fflush(stdout);
+    prompt = secondaryPrompt;
 }
 
+//http://www.delorie.com/gnu/docs/readline/rlman_24.html
+/* A static variable for holding the line. */
+static char *line_read = (char *)NULL;
 
 void ReaderClass::fillInputBuffer()
 {
-	// if the user indicates end of file make it a quit
-	if (gets(buffer) == NULL)
-		strcpy(buffer,"quit");
+    /* If the buffer has already been allocated,
+       return the memory to the free pool. */
+    if (line_read)
+    {
+        free (line_read);
+        line_read = (char *)NULL;
 
-	// initialize the current pointer
-	p = buffer;
-	skipSpaces();
+    }
+    /* Get a line from the user. */
+    line_read = readline(prompt);
+
+    /* If the line has any text in it,
+       save it on the history. */
+    if (line_read && *line_read) {
+        add_history (line_read);
+    }
+    else if (line_read == NULL) {
+        strcpy(line_read,"quit");
+    }
+
+    // initialize the current pointer
+    p = line_read;
+    skipSpaces();
 }
 
 int ReaderClass::isSeparator(int c)
@@ -140,4 +162,6 @@ Symbol * ReaderClass::readSymbol()
 		*q++ = *p++;
 	*q = '\0';
 	return new Symbol(token);
+}
+
 }

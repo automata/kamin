@@ -1,6 +1,8 @@
 # ifndef readerh
 # define readerh
 
+namespace Interpreter {
+
 // forward declarations
 class Expression;
 class IntegerExpression;
@@ -32,4 +34,5 @@ protected:
 	ListNode * readList();
 };
 
+}
 # endif

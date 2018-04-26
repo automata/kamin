@@ -1,5 +1,7 @@
-# include <std.h>
-# include "lisp.h"
+#include "std.h"
+#include "lisp.h"
+
+namespace Interpreter {
 
 extern ReaderClass * reader;
 
@@ -341,7 +343,7 @@ void QueryStatement::apply(Expr&target, ListNode*args, Environment*rho)
 		}
 
 	// we make a new environment to isolate any new variables defined
-	Env newrho = new Environment(emptyList, emptyList, rho);
+	Environment *newrho = new Environment(emptyList, emptyList, rho);
 
 	args->at(0)->eval(target, valueOps, newrho);
 
@@ -360,7 +362,7 @@ void QueryStatement::apply(Expr&target, ListNode*args, Environment*rho)
 	newrho = 0;	// force memory management
 }
 
-initialize()
+void initialize()
 {
 	// create the reader/parser 
 	reader = new PrologReader;
@@ -379,4 +381,6 @@ initialize()
 	Environment * cmds = commands;
 	cmds->add(new Symbol("define"), new DefineStatement);
 	cmds->add(new Symbol("query"), new QueryStatement);
+}
+
 }

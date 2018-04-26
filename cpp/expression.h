@@ -1,6 +1,8 @@
 # ifndef expressionh
 # define expressionh
 
+namespace Interpreter {
+
 //	forward references
 class Environment;
 class Expression;
@@ -81,7 +83,7 @@ private:
 	char * text;
 
 public:
-	Symbol(char *);
+	Symbol(const char *);
 
 	virtual void free();
 	virtual void eval(Expr &, Environment *, Environment *);
@@ -89,10 +91,13 @@ public:
 	virtual Symbol * isSymbol();
 
 	int operator == (Expression *);
-	int operator == (char *);
+	int operator == (const char *);
 	char * chars() { return text; }
 };
 
-Expression * error(char *, char * x = 0);
+Expression * error(const char *, const char * x = 0);
+
+}
 
 # endif
+

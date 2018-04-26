@@ -1,14 +1,16 @@
-# include <stdio.h>
-# include "lisp.h"
-# include "environment.h"
+#include <stdio.h>
+#include "lisp.h"
+#include "environment.h"
+
+namespace Interpreter {
 
 extern ReaderClass * reader;
 extern Env globalEnvironment;
 extern Env commands;
 extern Env valueOps;
 extern List emptyList;
-extern Expr true;
-extern Expr false;
+extern Expr trueExpr;
+extern Expr falseExpr;
 
 int isTrue(Expression * cond)
 {
@@ -167,7 +169,7 @@ void LazyFunction::apply(Expr & target, ListNode * args, Environment * rho)
 	ListNode * newargs = makeThunks(args, rho);
 
 	// make new environment
-	Env newrho = new Environment(anames, newargs, context);
+	Environment *newrho = new Environment(anames, newargs, context);
 
 	// evaluate body in new environment
 	if (body())
@@ -204,7 +206,7 @@ void LambdaFunction::apply(Expr & target, ListNode * args, Environment * rho)
 	target = new LazyFunction(argNames, args->at(1), rho);
 }
 
-initialize()
+void initialize()
 {
 
 	// initialize global variables
@@ -212,8 +214,8 @@ initialize()
 
 	// initialize the value of true
 	Symbol * truesym = new Symbol("T");
-	true = truesym;
-	false = emptyList();
+	trueExpr = truesym;
+	falseExpr = emptyList();
 
 	// initialize the commands environment
 	Environment * cmds = commands;
@@ -244,3 +246,4 @@ initialize()
 	ge->add(new Symbol("nil"), emptyList());
 }
 
+}

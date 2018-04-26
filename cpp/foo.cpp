@@ -1,7 +1,9 @@
-# include <std.h>
-# include "environment.h"
-# include "intsym.h"
-# include "list.h"
+#include "std.h"
+#include "environment.h"
+#include "intsym.h"
+#include "list.h"
+
+namespace Interpreter {
 
 Environment * Environment::isEnvironment()
 {	return this; }
@@ -101,3 +103,4 @@ void Environment::add(Symbol * s, Expression * v)
 	theValues = new ListNode(v, theValues());
 }
 
+}

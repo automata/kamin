@@ -1,5 +1,8 @@
-# include "expression.h"
-# include <std.h>
+#include "expression.h"
+#include "std.h"
+#include "environment.h"
+
+namespace Interpreter {
 
 //
 //	class Expr - expression holders
@@ -21,7 +24,7 @@ void Expr::operator = (Expression * newvalue)
 	// decrement left hand side of assignment 
 	if (value) {
 		value->referenceCount--;
-		if (value->referenceCount = 0) {
+		if (value->referenceCount == 0) {
 			value->free();
 			delete value;
 			}
@@ -99,15 +102,13 @@ Continuation * Expression::isContinuation() { return 0; }
 //	basic objects - integers and symbols
 //
 
-# include "environment.h"
-
 //
 //	integers
 //
 
 void IntegerExpression::print()
 {
-	printf("%d", value);
+	printf("%d\n", value);
 }
 
 IntegerExpression * IntegerExpression::isInteger()
@@ -119,7 +120,7 @@ IntegerExpression * IntegerExpression::isInteger()
 //	symbols
 //
 
-Symbol::Symbol(char * t)
+Symbol::Symbol(const char * t)
 {
 	// make a new copy of text
 	text = new char[strlen(t) + 1];
@@ -147,7 +148,7 @@ void Symbol::eval(Expr & target, Environment * valueops, Environment * rho)
 
 void Symbol::print()
 {
-	printf("%s", text);
+	printf("%s\n", text);
 }
 
 Symbol * Symbol::isSymbol()
@@ -162,7 +163,9 @@ int Symbol::operator == (Expression *sym)
 	return 0;
 }
 
-int Symbol::operator == (char *t)
+int Symbol::operator == (const char *t)
 {	
 	return 0 == strcmp(text, t); 
+}
+
 }

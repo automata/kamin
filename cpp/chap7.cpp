@@ -1,8 +1,10 @@
-# include <std.h>
-# include <ctype.h>
+#include "std.h"
+#include <ctype.h>
 
-# include "lisp.h"
-# include "environment.h"
+#include "lisp.h"
+#include "environment.h"
+
+namespace Interpreter {
 
 extern ReaderClass * reader;
 extern Env globalEnvironment;
@@ -87,7 +89,7 @@ void Method::doMethod(Expr& target, Object* self, ListNode* args,
 	context = ctx;
 
 	// put self on the front of the argument list
-	List newargs = new ListNode(self, args);
+	ListNode *newargs = new ListNode(self, args);
 
 	// and execute the function
 	apply(target, newargs, rho);
@@ -169,6 +171,9 @@ void IntegerBinaryMethod::doMethod(Expr & target, Object * self,
 // smalltalk symbols just evaluate to themselves
 class SmalltalkSymbol : public Symbol {
 public:
+    //https://stackoverflow.com/a/3217473/152016
+    //https://stackoverflow.com/a/18034496/152016
+    SmalltalkSymbol(const char * t) : Symbol(t){}
 	virtual void eval(Expr & target, Environment *, Environment *)
 		{ target = this; }
 };
@@ -335,7 +340,7 @@ void MethodMethod::doMethod(Expr& target, Object* self, ListNode *args,
 	target = name;
 }
 
-initialize()
+void initialize()
 {
 	// initialize global variables
 	reader = new SmalltalkReader;
@@ -375,4 +380,6 @@ initialize()
 	im->add(new Symbol("if"), new IfMethod);
 	ge->add(new Symbol("Integer"),
 			new Object(objClassMethods, objData));
+}
+
 }
