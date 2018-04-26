@@ -6,8 +6,8 @@ CXX = g++
 CFLAGS=
 LIBS = -lg++
 #     The following two rules add automaticity to c++ suffixes
-.SUFFIXES: .cc .C
-.cc.o:
+.SUFFIXES: .cpp .C
+.cpp.o:
 	$(CXX) $(CFLAGS) -c  $<
 .C.o:
 	$(CXX) $(CFLAGS) -c $<
