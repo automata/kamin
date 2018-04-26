@@ -1,8 +1,8 @@
 Programming Languages: An Interpreter-Based Approach, Addison-Wesley, 1990 by Sam Kamin
 http://loome.cs.uiuc.edu/kamin/pubs.html
 
-pascal/     Original Kamin's interpreters in Pascal
-cpp/        Rewrite (from scratch) of Kamin's interpreters in C++ by Tim Budd
+- `pascal/` (Original Kamin's interpreters in Pascal)
+- `cpp/`  (Rewrite (from scratch) of Kamin's interpreters in C++ by Tim Budd) 
 
 ### Compiling the cpp interpreter
 
